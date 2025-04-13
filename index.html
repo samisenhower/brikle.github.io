@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STPlay - Competition Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0057FF;
+            color: white;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: #0057FF;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        nav a {
+            margin: 0 1rem;
+            font-size: 1rem;
+            color: white;
+        }
+
+        .sign-in-btn {
+            background-color: #FFC107;
+            color: #333;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            font-weight: 600;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero .cta-btn {
+            background-color: #FFC107;
+            color: #333;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .hero img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 2rem;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .feature-card {
+            background-color: white;
+            color: #333;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .feature-card img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card p {
+            font-size: 0.9rem;
+        }
+
+        /* Leaderboard Section */
+        .leaderboard {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .leaderboard h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tabs span {
+            background-color: white;
+            color: #333;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .tabs .active {
+            background-color: #FFC107;
+            color: #333;
+        }
+
+        .leaderboard-table {
+            background-color: white;
+            color: #333;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .leaderboard-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .leaderboard-table th,
+        .leaderboard-table td {
+            padding: 0.75rem;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+
+        .leaderboard-table th {
+            background-color: #f5f5f5;
+            font-weight: 600;
+        }
+
+        .leaderboard-table td img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+        }
+
+        .leaderboard-table tr:nth-child(4) {
+            background-color: #FFE082;
+        }
+
+        /* Testimonial Section */
+        .testimonial {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .testimonial-card {
+            background-color: white;
+            color: #333;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .testimonial-card p {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .stats {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .stats span {
+            margin: 0.5rem;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .faq-card {
+            background-color: white;
+            color: #333;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .faq-card p {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem;
+            text-align: center;
+            background-color: #003BBF;
+        }
+
+        footer .logo {
+            margin-bottom: 1rem;
+        }
+
+        footer nav a {
+            margin: 0 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .social-icons {
+            margin: 1rem 0;
+        }
+
+        .social-icons img {
+            width: 24px;
+            height: 24px;
+            margin: 0 0.5rem;
+        }
+
+        .newsletter {
+            margin: 1rem 0;
+        }
+
+        .newsletter input {
+            padding: 0.5rem;
+            border: none;
+            border-radius: 20px 0 0 20px;
+            width: 200px;
+        }
+
+        .newsletter button {
+            padding: 0.5rem 1rem;
+            background-color: #FFC107;
+            color: #333;
+            border: none;
+            border-radius: 0 20px 20px 0;
+            cursor: pointer;
+        }
+
+        footer p {
+            font-size: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .hero {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                text-align: left;
+            }
+
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .hero p {
+                font-size: 1.5rem;
+            }
+
+            .hero img {
+                max-width: 40%;
+            }
+
+            .features {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            .feature-card {
+                width: 30%;
+            }
+
+            .leaderboard-table th,
+            .leaderboard-table td {
+                font-size: 1rem;
+            }
+
+            .testimonial {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                text-align: left;
+            }
+
+            .testimonial-card {
+                width: 60%;
+            }
+
+            .testimonial-card img {
+                max-width: 40%;
+            }
+
+            .faq-card {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                text-align: left;
+            }
+
+            .faq-card h3 {
+                width: 50%;
+            }
+
+            .contact-info {
+                width: 40%;
+                align-items: flex-end;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">STPlay</div>
+        <nav>
+            <a href="#">About</a>
+            <a href="#">Learning</a>
+            <a href="#">Services</a>
+            <a href="#">Contacts</a>
+        </nav>
+        <a href="#" class="sign-in-btn">Sign In</a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div>
+            <h1>Play in The Competition Right Now</h1>
+            <p>Find a great and priceless place to earn awards</p>
+            <a href="#" class="cta-btn">Sign Up</a>
+        </div>
+        <!-- Replace with your 3D character image -->
+        <img src="placeholder-hero-image.png" alt="3D Character">
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="feature-card">
+            <!-- Replace with your icon image -->
+            <img src="placeholder-icon1.png" alt="Stable Platform Icon">
+            <h3>Stable Platform</h3>
+            <p>We are free to study and learn with us</p>
+        </div>
+        <div class="feature-card">
+            <!-- Replace with your icon image -->
+            <img src="placeholder-icon2.png" alt="Multi Culture Place Icon">
+            <h3>Multi Culture Place</h3>
+            <p>We live differently and simply</p>
+        </div>
+        <div class="feature-card">
+            <!-- Replace with your icon image -->
+            <img src="placeholder-icon3.png" alt="Weekly Awards Icon">
+            <h3>Weekly Awards</h3>
+            <p>Weekly awards for the best students</p>
+        </div>
+    </section>
+
+    <!-- Leaderboard Section -->
+    <section class="leaderboard">
+        <h2>Best Players</h2>
+        <div class="tabs">
+            <span class="active">World</span>
+            <span>Europe</span>
+            <span>England</span>
+        </div>
+        <div class="leaderboard-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Student</th>
+                        <th>Earned</th>
+                        <th>Spent</th>
+                        <th>Change</th>
+                        <th>Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><img src="placeholder-avatar1.png" alt="Avatar"> Martin Julius</td>
+                        <td>729</td>
+                        <td>220:09</td>
+                        <td>14%</td>
+                        <td>Player Physics</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><img src="placeholder-avatar2.png" alt="Avatar"> Finn AlexID</td>
+                        <td>439</td>
+                        <td>150:09</td>
+                        <td>9%</td>
+                        <td>Player Physics</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><img src="placeholder-avatar3.png" alt="Avatar"> Martin Julius</td>
+                        <td>423</td>
+                        <td>133:59</td>
+                        <td>1%</td>
+                        <td>Player Physics</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td><img src="placeholder-avatar4.png" alt="Avatar"> Luna Julius</td>
+                        <td>387</td>
+                        <td>134:49</td>
+                        <td>14%</td>
+                        <td>Player Physics</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td><img src="placeholder-avatar5.png" alt="Avatar"> Neat Julius</td>
+                        <td>150</td>
+                        <td>123:59</td>
+                        <td>7%</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonial">
+        <div class="testimonial-card">
+            <!-- Replace with your testimonial image -->
+            <img src="placeholder-testimonial-image.png" alt="Testimonial Image">
+            <h3>Your Lovely Learning Game</h3>
+            <p>Find, explore, and learn in an awesome place</p>
+            <div class="stats">
+                <span>6 Months Time</span>
+                <span>Enroll by October 29, 2023</span>
+                <span>Course Rating ★★★★★</span>
+            </div>
+            <a href="#" class="cta-btn">Sign Up</a>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="faq-card">
+            <div>
+                <h3>Have a Question?</h3>
+                <p>Find, explore, and learn in an awesome place</p>
+                <a href="#" class="cta-btn">About Us</a>
+            </div>
+            <div class="contact-info">
+                <p>Hello@STplay.com</p>
+                <p>Less than 20 hours</p>
+                <p>+977 3231 81 21</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="logo">STPlay</div>
+        <nav>
+            <a href="#">About</a>
+            <a href="#">Learning</a>
+            <a href="#">Services</a>
+            <a href="#">Contacts</a>
+        </nav>
+        <div class="social-icons">
+            <!-- Replace with your social media icons -->
+            <img src="placeholder-social1.png" alt="Social Icon">
+            <img src="placeholder-social2.png" alt="Social Icon">
+            <img src="placeholder-social3.png" alt="Social Icon">
+        </div>
+        <div class="newsletter">
+            <input type="email" placeholder="Your Email">
+            <button>Search</button>
+        </div>
+        <p>© 2023 STPlay. All Rights Reserved</p>
+    </footer>
+
+    <script>
+        // Tab functionality for leaderboard
+        const tabs = document.querySelectorAll('.tabs span');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                // Add logic to update leaderboard data if needed
+            });
+        });
+    </script>
+</body>
+</html>
