@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRIKLE - About</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0057FF;
+            color: white;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: #0057FF;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        nav a {
+            margin: 0 1rem;
+            font-size: 1rem;
+            color: white;
+        }
+
+        .sign-in-btn {
+            background-color: #FFC107;
+            color: #333;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            font-weight: 600;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero .cta-btn {
+            background-color: #FFC107;
+            color: #333;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .hero img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 2rem;
+        }
+        
+        .hero-set-img {
+        	height: 100%;
+    		width: 100%;
+    		object-fit: cover;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 100px;
+        }
+
+        .feature-card {
+            background-color: #004ee9;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .feature-card img {
+            width: 250px;
+            height: 250px;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card p {
+            font-size: 0.9rem;
+        }
+
+        /* Leaderboard Section */
+        .leaderboard {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .leaderboard h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tabs span {
+            background-color: white;
+            color: #333;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .tabs .active {
+            background-color: #FFC107;
+            color: #333;
+        }
+
+        .leaderboard-table {
+            background-color: white;
+            color: #333;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .leaderboard-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .leaderboard-table th,
+        .leaderboard-table td {
+            padding: 0.75rem;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+
+        .leaderboard-table th {
+            background-color: #f5f5f5;
+            font-weight: 600;
+        }
+
+        .leaderboard-table td img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+        }
+
+        .leaderboard-table tr:nth-child(4) {
+            background-color: #FFE082;
+        }
+
+        /* Testimonial Section */
+        .testimonial {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .testimonial-card {
+            background-color: white;
+            color: #333;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .testimonial-card p {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .stats {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .stats span {
+            margin: 0.5rem;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .faq-card {
+            background-color: white;
+            color: #333;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .faq-card p {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem;
+            text-align: center;
+            background-color: #003BBF;
+        }
+
+        footer .logo {
+            margin-bottom: 1rem;
+        }
+
+        footer nav a {
+            margin: 0 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .social-icons {
+            margin: 1rem 0;
+        }
+
+        .social-icons img {
+            width: 24px;
+            height: 24px;
+            margin: 0 0.5rem;
+        }
+
+        .newsletter {
+            margin: 1rem 0;
+        }
+
+        .newsletter input {
+            padding: 0.5rem;
+            border: none;
+            border-radius: 20px 0 0 20px;
+            width: 200px;
+        }
+
+        .newsletter button {
+            padding: 0.5rem 1rem;
+            background-color: #FFC107;
+            color: #333;
+            border: none;
+            border-radius: 0 20px 20px 0;
+            cursor: pointer;
+        }
+
+        footer p {
+            font-size: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .hero {
+                /*display: flex;
+                align-items: center;
+                justify-content: space-between;
+                text-align: left;*/
+            }
+
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .hero p {
+                font-size: 1.5rem;
+            }
+
+            .hero img {
+                max-width: 40%;
+            }
+
+            /*.features {
+                flex-direction: row;
+                justify-content: space-between;
+            }*/
+
+            .feature-card {
+                width: 60%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .leaderboard-table th,
+            .leaderboard-table td {
+                font-size: 1rem;
+            }
+
+            .testimonial {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                text-align: left;
+            }
+
+            .testimonial-card {
+                width: 60%;
+            }
+
+            .testimonial-card img {
+                max-width: 40%;
+            }
+
+            .faq-card {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                text-align: left;
+            }
+
+            .faq-card h3 {
+                width: 50%;
+            }
+
+            .contact-info {
+                width: 40%;
+                align-items: flex-end;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+        <a href="https://www.brikle.com"><img src="../img/BRIKLE.png" alt="BRIKLE Logo" width="100" height="100"></a>
+        </div>
+        <nav>
+            <a href="#">About</a>
+            <a href="#">Updates</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+    	<img src="../img/OakwellCybertruckSetRender_small.png" class="hero-set-img">
+        <div>
+            <h1>Oakwell Cybertruck</h1>
+            <p style="max-width: 1000px; margin-left: auto; margin-right: auto;">Limited edition set featuring the Oakwell Cybertruck with a build-your-own parent, Oakwell student in uniform, and backpack</p>
+        </div>
+    </section>
+    
+    <!-- Page Content -->
+    <section>
+    	<div>
+    	<img src="../img/color-curve.png">
+    	</div>
+    </section>
+    <section style="background: #ffffff;">
+    	<div>
+    	Test
+    	</div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="logo">BRIKLE</div>
+        <div>
+        Follow our journey on Instagram
+        <br/>
+        </div>
+        <div class="social-icons">
+            <!-- Replace with your social media icons -->
+            <a href="https://www.instagram.com/brikle_official/" target="_blank"><img src="../img/insta-icon.png" alt="Social Icon"></a>
+        </div>
+        <p>© 2025 BRIKLE. All Rights Reserved</p>
+    </footer>
+</body>
+</html>
